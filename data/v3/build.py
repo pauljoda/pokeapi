@@ -42,8 +42,9 @@ SOUND_DIR = "{prefix}{{file_name}}".format(
         "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/",
     )
 )
-IMAGE_DIR = os.getcwd() + "/data/v3/sprites/sprites/"
-CRIES_DIR = os.getcwd() + "/data/v3/cries/cries/"
+# Sprites and cries remain sourced from the v2 submodules until v3 assets exist
+IMAGE_DIR = os.getcwd() + "/data/v2/sprites/sprites/"
+CRIES_DIR = os.getcwd() + "/data/v2/cries/cries/"
 RESOURCE_IMAGES = []
 RESOURCE_CRIES = []
 
