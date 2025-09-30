@@ -47,5 +47,5 @@ When the container is up and running, run the following shell commands:
 
 ```sh
 docker exec pokeapi python manage.py migrate --settings=config.docker-compose
-docker exec pokeapi sh -c 'echo "from data.v2.build import build_all; build_all()" | python manage.py shell --settings=config.docker-compose'
+docker exec pokeapi sh -c 'echo "from data.v3.build import build_all; build_all()" | python manage.py shell --settings=config.docker-compose'
 ```

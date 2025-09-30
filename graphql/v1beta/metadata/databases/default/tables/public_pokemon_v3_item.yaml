@@ -1,0 +1,102 @@
+table:
+  name: pokemon_v3_item
+  schema: public
+object_relationships:
+  - name: pokemon_v3_itemcategory
+    using:
+      foreign_key_constraint_on: item_category_id
+  - name: pokemon_v3_itemflingeffect
+    using:
+      foreign_key_constraint_on: item_fling_effect_id
+array_relationships:
+  - name: pokemonV2PokemonevolutionsByHeldItemId
+    using:
+      foreign_key_constraint_on:
+        column: held_item_id
+        table:
+          name: pokemon_v3_pokemonevolution
+          schema: public
+  - name: pokemon_v3_berries
+    using:
+      foreign_key_constraint_on:
+        column: item_id
+        table:
+          name: pokemon_v3_berry
+          schema: public
+  - name: pokemon_v3_evolutionchains
+    using:
+      foreign_key_constraint_on:
+        column: baby_trigger_item_id
+        table:
+          name: pokemon_v3_evolutionchain
+          schema: public
+  - name: pokemon_v3_itemattributemaps
+    using:
+      foreign_key_constraint_on:
+        column: item_id
+        table:
+          name: pokemon_v3_itemattributemap
+          schema: public
+  - name: pokemon_v3_itemeffecttexts
+    using:
+      foreign_key_constraint_on:
+        column: item_id
+        table:
+          name: pokemon_v3_itemeffecttext
+          schema: public
+  - name: pokemon_v3_itemflavortexts
+    using:
+      foreign_key_constraint_on:
+        column: item_id
+        table:
+          name: pokemon_v3_itemflavortext
+          schema: public
+  - name: pokemon_v3_itemgameindices
+    using:
+      foreign_key_constraint_on:
+        column: item_id
+        table:
+          name: pokemon_v3_itemgameindex
+          schema: public
+  - name: pokemon_v3_itemnames
+    using:
+      foreign_key_constraint_on:
+        column: item_id
+        table:
+          name: pokemon_v3_itemname
+          schema: public
+  - name: pokemon_v3_itemsprites
+    using:
+      foreign_key_constraint_on:
+        column: item_id
+        table:
+          name: pokemon_v3_itemsprites
+          schema: public
+  - name: pokemon_v3_machines
+    using:
+      foreign_key_constraint_on:
+        column: item_id
+        table:
+          name: pokemon_v3_machine
+          schema: public
+  - name: pokemon_v3_pokemonevolutions
+    using:
+      foreign_key_constraint_on:
+        column: evolution_item_id
+        table:
+          name: pokemon_v3_pokemonevolution
+          schema: public
+  - name: pokemon_v3_pokemonitems
+    using:
+      foreign_key_constraint_on:
+        column: item_id
+        table:
+          name: pokemon_v3_pokemonitem
+          schema: public
+select_permissions:
+  - role: anon
+    permission:
+      columns: '*'
+      filter: {}
+      limit: 100000
+      allow_aggregations: true

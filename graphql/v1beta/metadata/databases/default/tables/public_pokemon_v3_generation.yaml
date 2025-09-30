@@ -1,0 +1,106 @@
+table:
+  name: pokemon_v3_generation
+  schema: public
+object_relationships:
+  - name: pokemon_v3_region
+    using:
+      foreign_key_constraint_on: region_id
+array_relationships:
+  - name: pokemon_v3_abilities
+    using:
+      foreign_key_constraint_on:
+        column: generation_id
+        table:
+          name: pokemon_v3_ability
+          schema: public
+  - name: pokemon_v3_generationnames
+    using:
+      foreign_key_constraint_on:
+        column: generation_id
+        table:
+          name: pokemon_v3_generationname
+          schema: public
+  - name: pokemon_v3_itemgameindices
+    using:
+      foreign_key_constraint_on:
+        column: generation_id
+        table:
+          name: pokemon_v3_itemgameindex
+          schema: public
+  - name: pokemon_v3_locationgameindices
+    using:
+      foreign_key_constraint_on:
+        column: generation_id
+        table:
+          name: pokemon_v3_locationgameindex
+          schema: public
+  - name: pokemon_v3_moves
+    using:
+      foreign_key_constraint_on:
+        column: generation_id
+        table:
+          name: pokemon_v3_move
+          schema: public
+  - name: pokemon_v3_pokemonabilitypasts
+    using:
+      foreign_key_constraint_on:
+        column: generation_id
+        table:
+          name: pokemon_v3_pokemonabilitypast
+          schema: public
+  - name: pokemon_v3_pokemonformgenerations
+    using:
+      foreign_key_constraint_on:
+        column: generation_id
+        table:
+          name: pokemon_v3_pokemonformgeneration
+          schema: public
+  - name: pokemon_v3_pokemonspecies
+    using:
+      foreign_key_constraint_on:
+        column: generation_id
+        table:
+          name: pokemon_v3_pokemonspecies
+          schema: public
+  - name: pokemon_v3_pokemontypepasts
+    using:
+      foreign_key_constraint_on:
+        column: generation_id
+        table:
+          name: pokemon_v3_pokemontypepast
+          schema: public
+  - name: pokemon_v3_typeefficacypasts
+    using:
+      foreign_key_constraint_on:
+        column: generation_id
+        table:
+          name: pokemon_v3_typeefficacypast
+          schema: public
+  - name: pokemon_v3_typegameindices
+    using:
+      foreign_key_constraint_on:
+        column: generation_id
+        table:
+          name: pokemon_v3_typegameindex
+          schema: public
+  - name: pokemon_v3_types
+    using:
+      foreign_key_constraint_on:
+        column: generation_id
+        table:
+          name: pokemon_v3_type
+          schema: public
+  - name: pokemon_v3_versiongroups
+    using:
+      foreign_key_constraint_on:
+        column: generation_id
+        table:
+          name: pokemon_v3_versiongroup
+          schema: public
+select_permissions:
+  - role: anon
+    permission:
+      columns: '*'
+      filter: {}
+      limit: 100000
+      allow_aggregations: true

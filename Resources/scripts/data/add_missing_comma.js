@@ -2,7 +2,7 @@
 
 var fs  = require("fs");
 
-var allLines = fs.readFileSync('./data/v2/csv/pokemon_moves.csv').toString().split('\n');
+var allLines = fs.readFileSync('./data/v3/csv/pokemon_moves.csv').toString().split('\n');
 
 allLines.forEach(function (line) {
     var count = (line.match(/,/g) || []).length;
@@ -13,5 +13,5 @@ allLines.forEach(function (line) {
     } else if (count < 5) {
         console.log('?')
     }
-    fs.appendFileSync("./data/v2/csv/pokemon_moves1.csv", line.toString() + "\n");
+    fs.appendFileSync("./data/v3/csv/pokemon_moves1.csv", line.toString() + "\n");
 });

@@ -20,7 +20,7 @@ setup:  # Set up the project database
 	python manage.py migrate ${local_config}
 
 build-db:  # Build database
-	echo "from data.v2.build import build_all; build_all()" | python manage.py shell ${local_config}
+	echo "from data.v3.build import build_all; build_all()" | python manage.py shell ${local_config}
 
 wipe-sqlite-db:  # Delete's the project database
 	rm -rf db.sqlite3
@@ -53,7 +53,7 @@ docker-migrate:  # (Docker) Run any pending migrations
 	docker compose exec -T app python manage.py migrate ${docker_config}
 
 docker-build-db:  # (Docker) Build the database
-	docker compose exec -T app sh -c 'echo "from data.v2.build import build_all; build_all()" | python manage.py shell ${docker_config}'
+	docker compose exec -T app sh -c 'echo "from data.v3.build import build_all; build_all()" | python manage.py shell ${docker_config}'
 
 docker-make-migrations:  # (Docker) Create migrations files if schema has changed
 	docker compose exec -T app sh -c 'python manage.py makemigrations ${docker_config}'
@@ -97,10 +97,10 @@ pull-veekun:
 	git -C ${veekun_pokedex_repository} pull
 
 sync-from-veekun: pull pull-veekun  # Copy data from ../pokedex to this repository
-	cp -a ${veekun_pokedex_repository}/pokedex/data/csv/. ./data/v2/csv
+	cp -a ${veekun_pokedex_repository}/pokedex/data/csv/. ./data/v3/csv
 
 sync-to-veekun: pull pull-veekun  # Copy data from this repository to ../pokedex
-	cp -a ./data/v2/csv/. ${veekun_pokedex_repository}/pokedex/data/csv
+	cp -a ./data/v3/csv/. ${veekun_pokedex_repository}/pokedex/data/csv
 
 # read-env-file:  # Exports ./.env into shell environment variables
 # 	export `egrep -v '^#' .env | xargs`
@@ -133,7 +133,7 @@ k8s-migrate:  # (k8s) Run any pending migrations
 	kubectl exec --namespace pokeapi deployment/pokeapi -- python manage.py migrate ${docker_config}
 
 k8s-build-db:  # (k8s) Build the database
-	kubectl exec --namespace pokeapi deployment/pokeapi -- sh -c 'echo "from data.v2.build import build_all; build_all()" | python manage.py shell ${docker_config}'
+	kubectl exec --namespace pokeapi deployment/pokeapi -- sh -c 'echo "from data.v3.build import build_all; build_all()" | python manage.py shell ${docker_config}'
 
 k8s-delete:  # (k8s) Delete pokeapi namespace
 	kubectl delete namespace pokeapi

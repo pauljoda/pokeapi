@@ -20,4 +20,4 @@ wait_for_http() {
     fi
 }
 
-wait_for_http "${1:-http://localhost/api/v2/}"
+wait_for_http "${1:-http://localhost/api/v3/}"

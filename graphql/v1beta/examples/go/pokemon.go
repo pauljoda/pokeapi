@@ -23,57 +23,57 @@ var (
 		},
 		Query: `
 query pokemon_details($name: String) {
-	species: pokemon_v2_pokemonspecies(where: {name: {_eq: $name}}) {
+	species: pokemon_v3_pokemonspecies(where: {name: {_eq: $name}}) {
 	name
 	base_happiness
 	is_legendary
 	is_mythical
-	generation: pokemon_v2_generation {
+	generation: pokemon_v3_generation {
 		name
 	}
-	habitat: pokemon_v2_pokemonhabitat {
+	habitat: pokemon_v3_pokemonhabitat {
 		name
 	}
-	pokemon: pokemon_v2_pokemons_aggregate(limit: 1) {
+	pokemon: pokemon_v3_pokemons_aggregate(limit: 1) {
 		nodes {
 		height
 		name
 		id
 		weight
-		abilities: pokemon_v2_pokemonabilities_aggregate {
+		abilities: pokemon_v3_pokemonabilities_aggregate {
 			nodes {
-			ability: pokemon_v2_ability {
+			ability: pokemon_v3_ability {
 				name
 			}
 			}
 		}
-		stats: pokemon_v2_pokemonstats {
+		stats: pokemon_v3_pokemonstats {
 			base_stat
-			stat: pokemon_v2_stat {
+			stat: pokemon_v3_stat {
 			name
 			}
 		}
-		types: pokemon_v2_pokemontypes {
+		types: pokemon_v3_pokemontypes {
 			slot
-			type: pokemon_v2_type {
+			type: pokemon_v3_type {
 			name
 			}
 		}
-		levelUpMoves: pokemon_v2_pokemonmoves_aggregate(where: {pokemon_v2_movelearnmethod: {name: {_eq: "level-up"}}}, distinct_on: move_id) {
+		levelUpMoves: pokemon_v3_pokemonmoves_aggregate(where: {pokemon_v3_movelearnmethod: {name: {_eq: "level-up"}}}, distinct_on: move_id) {
 			nodes {
-			move: pokemon_v2_move {
+			move: pokemon_v3_move {
 				name
 			}
 			level
 			}
 		}
-		foundInAsManyPlaces: pokemon_v2_encounters_aggregate {
+		foundInAsManyPlaces: pokemon_v3_encounters_aggregate {
 			aggregate {
 			count
 			}
 		}
-		fireRedItems: pokemon_v2_pokemonitems(where: {pokemon_v2_version: {name: {_eq: "firered"}}}) {
-			pokemon_v2_item {
+		fireRedItems: pokemon_v3_pokemonitems(where: {pokemon_v3_version: {name: {_eq: "firered"}}}) {
+			pokemon_v3_item {
 			name
 			cost
 			}
@@ -81,7 +81,7 @@ query pokemon_details($name: String) {
 		}
 		}
 	}
-	flavorText: pokemon_v2_pokemonspeciesflavortexts(where: {pokemon_v2_language: {name: {_eq: "en"}}, pokemon_v2_version: {name: {_eq: "firered"}}}) {
+	flavorText: pokemon_v3_pokemonspeciesflavortexts(where: {pokemon_v3_language: {name: {_eq: "en"}}, pokemon_v3_version: {name: {_eq: "firered"}}}) {
 		flavor_text
 	}
 	}

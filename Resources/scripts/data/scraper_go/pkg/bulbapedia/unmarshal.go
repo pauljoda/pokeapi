@@ -18,7 +18,7 @@ const (
 var Color = map[string]string{}
 
 func getColor(color string) string {
-	resp, err := http.Get("https://pokeapi.co/api/v2/pokemon-color/" + strings.ToLower(color))
+	resp, err := http.Get("https://pokeapi.co/api/v3/pokemon-color/" + strings.ToLower(color))
 	if err != nil {
 		log.Fatal().
 			Str("color", color).

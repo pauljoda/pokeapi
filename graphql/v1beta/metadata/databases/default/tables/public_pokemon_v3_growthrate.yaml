@@ -1,0 +1,39 @@
+table:
+  name: pokemon_v3_growthrate
+  schema: public
+array_relationships:
+  - name: pokemon_v3_experiences
+    using:
+      foreign_key_constraint_on:
+        column: growth_rate_id
+        table:
+          name: pokemon_v3_experience
+          schema: public
+  - name: pokemon_v3_growthratedescriptions
+    using:
+      foreign_key_constraint_on:
+        column: growth_rate_id
+        table:
+          name: pokemon_v3_growthratedescription
+          schema: public
+  - name: pokemon_v3_machines
+    using:
+      foreign_key_constraint_on:
+        column: growth_rate_id
+        table:
+          name: pokemon_v3_machine
+          schema: public
+  - name: pokemon_v3_pokemonspecies
+    using:
+      foreign_key_constraint_on:
+        column: growth_rate_id
+        table:
+          name: pokemon_v3_pokemonspecies
+          schema: public
+select_permissions:
+  - role: anon
+    permission:
+      columns: '*'
+      filter: {}
+      limit: 100000
+      allow_aggregations: true

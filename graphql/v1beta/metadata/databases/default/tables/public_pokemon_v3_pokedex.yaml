@@ -1,0 +1,43 @@
+table:
+  name: pokemon_v3_pokedex
+  schema: public
+object_relationships:
+  - name: pokemon_v3_region
+    using:
+      foreign_key_constraint_on: region_id
+array_relationships:
+  - name: pokemon_v3_pokedexdescriptions
+    using:
+      foreign_key_constraint_on:
+        column: pokedex_id
+        table:
+          name: pokemon_v3_pokedexdescription
+          schema: public
+  - name: pokemon_v3_pokedexnames
+    using:
+      foreign_key_constraint_on:
+        column: pokedex_id
+        table:
+          name: pokemon_v3_pokedexname
+          schema: public
+  - name: pokemon_v3_pokedexversiongroups
+    using:
+      foreign_key_constraint_on:
+        column: pokedex_id
+        table:
+          name: pokemon_v3_pokedexversiongroup
+          schema: public
+  - name: pokemon_v3_pokemondexnumbers
+    using:
+      foreign_key_constraint_on:
+        column: pokedex_id
+        table:
+          name: pokemon_v3_pokemondexnumber
+          schema: public
+select_permissions:
+  - role: anon
+    permission:
+      columns: '*'
+      filter: {}
+      limit: 100000
+      allow_aggregations: true

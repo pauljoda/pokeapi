@@ -1,0 +1,32 @@
+table:
+  name: pokemon_v3_moveattribute
+  schema: public
+array_relationships:
+  - name: pokemon_v3_moveattributedescriptions
+    using:
+      foreign_key_constraint_on:
+        column: move_attribute_id
+        table:
+          name: pokemon_v3_moveattributedescription
+          schema: public
+  - name: pokemon_v3_moveattributemaps
+    using:
+      foreign_key_constraint_on:
+        column: move_attribute_id
+        table:
+          name: pokemon_v3_moveattributemap
+          schema: public
+  - name: pokemon_v3_moveattributenames
+    using:
+      foreign_key_constraint_on:
+        column: move_attribute_id
+        table:
+          name: pokemon_v3_moveattributename
+          schema: public
+select_permissions:
+  - role: anon
+    permission:
+      columns: '*'
+      filter: {}
+      limit: 100000
+      allow_aggregations: true

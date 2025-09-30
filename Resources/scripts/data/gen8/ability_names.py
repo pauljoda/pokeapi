@@ -24,13 +24,6 @@ if __name__ == "__main__":
     header = ["ability_id", "local_language_id", "name"]
     entries = []
 
-    # conquest abilities
-    with open(os.path.join(csv_path, "ability_names.csv"), "r", encoding="utf-8", newline="") as csv_file:
-        reader = csv.reader(csv_file, delimiter=",")
-        for row in reader:
-            if row[0].isnumeric() and int(row[0]) > 10000:
-                entries.append([int(row[0]), int(row[1]), row[2]])
-
     with open(os.path.join(csv_path, "ability_names.csv"), "w", encoding="utf-8", newline="") as csv_file:
         writer = csv.writer(csv_file, delimiter=",", lineterminator="\n")
         for language_dir, language_id in languages.items():

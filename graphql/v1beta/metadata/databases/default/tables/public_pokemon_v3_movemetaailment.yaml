@@ -1,0 +1,25 @@
+table:
+  name: pokemon_v3_movemetaailment
+  schema: public
+array_relationships:
+  - name: pokemon_v3_movemeta
+    using:
+      foreign_key_constraint_on:
+        column: move_meta_ailment_id
+        table:
+          name: pokemon_v3_movemeta
+          schema: public
+  - name: pokemon_v3_movemetaailmentnames
+    using:
+      foreign_key_constraint_on:
+        column: move_meta_ailment_id
+        table:
+          name: pokemon_v3_movemetaailmentname
+          schema: public
+select_permissions:
+  - role: anon
+    permission:
+      columns: '*'
+      filter: {}
+      limit: 100000
+      allow_aggregations: true

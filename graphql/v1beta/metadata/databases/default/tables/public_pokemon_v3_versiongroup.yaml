@@ -1,0 +1,113 @@
+table:
+  name: pokemon_v3_versiongroup
+  schema: public
+object_relationships:
+  - name: pokemon_v3_generation
+    using:
+      foreign_key_constraint_on: generation_id
+array_relationships:
+  - name: pokemon_v3_abilitychanges
+    using:
+      foreign_key_constraint_on:
+        column: version_group_id
+        table:
+          name: pokemon_v3_abilitychange
+          schema: public
+  - name: pokemon_v3_abilityflavortexts
+    using:
+      foreign_key_constraint_on:
+        column: version_group_id
+        table:
+          name: pokemon_v3_abilityflavortext
+          schema: public
+  - name: pokemon_v3_encounterslots
+    using:
+      foreign_key_constraint_on:
+        column: version_group_id
+        table:
+          name: pokemon_v3_encounterslot
+          schema: public
+  - name: pokemon_v3_itemflavortexts
+    using:
+      foreign_key_constraint_on:
+        column: version_group_id
+        table:
+          name: pokemon_v3_itemflavortext
+          schema: public
+  - name: pokemon_v3_machines
+    using:
+      foreign_key_constraint_on:
+        column: version_group_id
+        table:
+          name: pokemon_v3_machine
+          schema: public
+  - name: pokemon_v3_movechanges
+    using:
+      foreign_key_constraint_on:
+        column: version_group_id
+        table:
+          name: pokemon_v3_movechange
+          schema: public
+  - name: pokemon_v3_moveeffectchanges
+    using:
+      foreign_key_constraint_on:
+        column: version_group_id
+        table:
+          name: pokemon_v3_moveeffectchange
+          schema: public
+  - name: pokemon_v3_moveflavortexts
+    using:
+      foreign_key_constraint_on:
+        column: version_group_id
+        table:
+          name: pokemon_v3_moveflavortext
+          schema: public
+  - name: pokemon_v3_pokedexversiongroups
+    using:
+      foreign_key_constraint_on:
+        column: version_group_id
+        table:
+          name: pokemon_v3_pokedexversiongroup
+          schema: public
+  - name: pokemon_v3_pokemonforms
+    using:
+      foreign_key_constraint_on:
+        column: version_group_id
+        table:
+          name: pokemon_v3_pokemonform
+          schema: public
+  - name: pokemon_v3_pokemonmoves
+    using:
+      foreign_key_constraint_on:
+        column: version_group_id
+        table:
+          name: pokemon_v3_pokemonmove
+          schema: public
+  - name: pokemon_v3_versiongroupmovelearnmethods
+    using:
+      foreign_key_constraint_on:
+        column: version_group_id
+        table:
+          name: pokemon_v3_versiongroupmovelearnmethod
+          schema: public
+  - name: pokemon_v3_versiongroupregions
+    using:
+      foreign_key_constraint_on:
+        column: version_group_id
+        table:
+          name: pokemon_v3_versiongroupregion
+          schema: public
+  - name: pokemon_v3_versions
+    using:
+      foreign_key_constraint_on:
+        column: version_group_id
+        table:
+          name: pokemon_v3_version
+          schema: public
+select_permissions:
+  - role: anon
+    permission:
+      columns: '*'
+      filter: {}
+      limit: 100000
+      allow_aggregations: true

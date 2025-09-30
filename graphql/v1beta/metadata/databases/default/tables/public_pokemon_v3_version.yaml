@@ -1,0 +1,57 @@
+table:
+  name: pokemon_v3_version
+  schema: public
+object_relationships:
+  - name: pokemon_v3_versiongroup
+    using:
+      foreign_key_constraint_on: version_group_id
+array_relationships:
+  - name: pokemon_v3_encounters
+    using:
+      foreign_key_constraint_on:
+        column: version_id
+        table:
+          name: pokemon_v3_encounter
+          schema: public
+  - name: pokemon_v3_locationareaencounterrates
+    using:
+      foreign_key_constraint_on:
+        column: version_id
+        table:
+          name: pokemon_v3_locationareaencounterrate
+          schema: public
+  - name: pokemon_v3_pokemongameindices
+    using:
+      foreign_key_constraint_on:
+        column: version_id
+        table:
+          name: pokemon_v3_pokemongameindex
+          schema: public
+  - name: pokemon_v3_pokemonitems
+    using:
+      foreign_key_constraint_on:
+        column: version_id
+        table:
+          name: pokemon_v3_pokemonitem
+          schema: public
+  - name: pokemon_v3_pokemonspeciesflavortexts
+    using:
+      foreign_key_constraint_on:
+        column: version_id
+        table:
+          name: pokemon_v3_pokemonspeciesflavortext
+          schema: public
+  - name: pokemon_v3_versionnames
+    using:
+      foreign_key_constraint_on:
+        column: version_id
+        table:
+          name: pokemon_v3_versionname
+          schema: public
+select_permissions:
+  - role: anon
+    permission:
+      columns: '*'
+      filter: {}
+      limit: 100000
+      allow_aggregations: true

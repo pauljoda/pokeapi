@@ -1,0 +1,99 @@
+table:
+  name: pokemon_v3_pokemon
+  schema: public
+object_relationships:
+  - name: pokemon_v3_pokemonspecy
+    using:
+      foreign_key_constraint_on: pokemon_species_id
+array_relationships:
+  - name: pokemon_v3_encounters
+    using:
+      foreign_key_constraint_on:
+        column: pokemon_id
+        table:
+          name: pokemon_v3_encounter
+          schema: public
+  - name: pokemon_v3_pokemonabilities
+    using:
+      foreign_key_constraint_on:
+        column: pokemon_id
+        table:
+          name: pokemon_v3_pokemonability
+          schema: public
+  - name: pokemon_v3_pokemonabilitypasts
+    using:
+      foreign_key_constraint_on:
+        column: pokemon_id
+        table:
+          name: pokemon_v3_pokemonabilitypast
+          schema: public
+  - name: pokemon_v3_pokemoncries
+    using:
+      foreign_key_constraint_on:
+        column: pokemon_id
+        table:
+          name: pokemon_v3_pokemoncries
+          schema: public
+  - name: pokemon_v3_pokemonforms
+    using:
+      foreign_key_constraint_on:
+        column: pokemon_id
+        table:
+          name: pokemon_v3_pokemonform
+          schema: public
+  - name: pokemon_v3_pokemongameindices
+    using:
+      foreign_key_constraint_on:
+        column: pokemon_id
+        table:
+          name: pokemon_v3_pokemongameindex
+          schema: public
+  - name: pokemon_v3_pokemonitems
+    using:
+      foreign_key_constraint_on:
+        column: pokemon_id
+        table:
+          name: pokemon_v3_pokemonitem
+          schema: public
+  - name: pokemon_v3_pokemonmoves
+    using:
+      foreign_key_constraint_on:
+        column: pokemon_id
+        table:
+          name: pokemon_v3_pokemonmove
+          schema: public
+  - name: pokemon_v3_pokemonsprites
+    using:
+      foreign_key_constraint_on:
+        column: pokemon_id
+        table:
+          name: pokemon_v3_pokemonsprites
+          schema: public
+  - name: pokemon_v3_pokemonstats
+    using:
+      foreign_key_constraint_on:
+        column: pokemon_id
+        table:
+          name: pokemon_v3_pokemonstat
+          schema: public
+  - name: pokemon_v3_pokemontypepasts
+    using:
+      foreign_key_constraint_on:
+        column: pokemon_id
+        table:
+          name: pokemon_v3_pokemontypepast
+          schema: public
+  - name: pokemon_v3_pokemontypes
+    using:
+      foreign_key_constraint_on:
+        column: pokemon_id
+        table:
+          name: pokemon_v3_pokemontype
+          schema: public
+select_permissions:
+  - role: anon
+    permission:
+      columns: '*'
+      filter: {}
+      limit: 100000
+      allow_aggregations: true

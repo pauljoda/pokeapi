@@ -64,9 +64,9 @@ To build or rebuild the database by applying any CSV file update, run
 make build-db
 ```
 
-Visit [localhost:8000/api/v2/](http://localhost:8000/api/v2/) to see the running API!
+Visit [localhost:8000/api/v3/](http://localhost:8000/api/v3/) to see the running API!
 
-Each time the `build-db` script is run, it will iterate over each table in the database, wipe it, and rewrite each row using the data found in data/v2/csv.
+Each time the `build-db` script is run, it will iterate over each table in the database, wipe it, and rewrite each row using the data found in data/v3/csv.
 
 If you ever need to wipe the database use this command:
 
@@ -98,10 +98,10 @@ If you don't have `make` on your machine you can use the following commands
 ```sh
 docker compose up -d
 docker compose exec -T app python manage.py migrate --settings=config.docker-compose
-docker compose exec -T app sh -c 'echo "from data.v2.build import build_all; build_all()" | python manage.py shell --settings=config.docker-compose'
+docker compose exec -T app sh -c 'echo "from data.v3.build import build_all; build_all()" | python manage.py shell --settings=config.docker-compose'
 ```
 
-Browse [localhost/api/v2/](http://localhost/api/v2/) or [localhost/api/v2/pokemon/bulbasaur/](http://localhost/api/v2/pokemon/bulbasaur/) on port `80`.
+Browse [localhost/api/v3/](http://localhost/api/v3/) or [localhost/api/v3/pokemon/bulbasaur/](http://localhost/api/v3/pokemon/bulbasaur/) on port `80`.
 
 To rebuild the database and apply any CSV file updates, run
 
@@ -150,7 +150,7 @@ kubectl apply -k Resources/k8s/kustomize/base/
 kubectl config set-context --current --namespace pokeapi # (Optional) Set pokeapi ns as the working ns
 # Wait for the cluster to spin up
 kubectl exec --namespace pokeapi deployment/pokeapi -- python manage.py migrate --settings=config.docker-compose # Migrate the DB
-kubectl exec --namespace pokeapi deployment/pokeapi -- sh -c 'echo "from data.v2.build import build_all; build_all()" | python manage.py shell --settings=config.docker-compose' # Build the db
+kubectl exec --namespace pokeapi deployment/pokeapi -- sh -c 'echo "from data.v3.build import build_all; build_all()" | python manage.py shell --settings=config.docker-compose' # Build the db
 kubectl wait --namespace pokeapi --timeout=120s --for=condition=complete job/load-graphql # Wait for Graphql configuration job to finish
 ```
 

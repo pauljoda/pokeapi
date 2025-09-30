@@ -1,0 +1,46 @@
+table:
+  name: pokemon_v3_movedamageclass
+  schema: public
+array_relationships:
+  - name: pokemon_v3_movedamageclassdescriptions
+    using:
+      foreign_key_constraint_on:
+        column: move_damage_class_id
+        table:
+          name: pokemon_v3_movedamageclassdescription
+          schema: public
+  - name: pokemon_v3_movedamageclassnames
+    using:
+      foreign_key_constraint_on:
+        column: move_damage_class_id
+        table:
+          name: pokemon_v3_movedamageclassname
+          schema: public
+  - name: pokemon_v3_moves
+    using:
+      foreign_key_constraint_on:
+        column: move_damage_class_id
+        table:
+          name: pokemon_v3_move
+          schema: public
+  - name: pokemon_v3_stats
+    using:
+      foreign_key_constraint_on:
+        column: move_damage_class_id
+        table:
+          name: pokemon_v3_stat
+          schema: public
+  - name: pokemon_v3_types
+    using:
+      foreign_key_constraint_on:
+        column: move_damage_class_id
+        table:
+          name: pokemon_v3_type
+          schema: public
+select_permissions:
+  - role: anon
+    permission:
+      columns: '*'
+      filter: {}
+      limit: 100000
+      allow_aggregations: true

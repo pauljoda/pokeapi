@@ -1,0 +1,23 @@
+table:
+  name: pokemon_v3_movechange
+  schema: public
+object_relationships:
+  - name: pokemon_v3_move
+    using:
+      foreign_key_constraint_on: move_id
+  - name: pokemon_v3_moveeffect
+    using:
+      foreign_key_constraint_on: move_effect_id
+  - name: pokemon_v3_type
+    using:
+      foreign_key_constraint_on: type_id
+  - name: pokemon_v3_versiongroup
+    using:
+      foreign_key_constraint_on: version_group_id
+select_permissions:
+  - role: anon
+    permission:
+      columns: '*'
+      filter: {}
+      limit: 100000
+      allow_aggregations: true

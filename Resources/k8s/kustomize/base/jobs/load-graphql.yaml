@@ -12,7 +12,7 @@ spec:
           image: curlimages/curl:latest
           command: ['sh', '-c']
           args:
-            - until curl -f -s --output /dev/null http://pokeapi:80/api/v2/pal-park-area/5/;
+            - until curl -f -s --output /dev/null http://pokeapi:80/api/v3/pal-park-area/5/;
               do echo waiting for pokeapi;
               sleep 2;
               done;

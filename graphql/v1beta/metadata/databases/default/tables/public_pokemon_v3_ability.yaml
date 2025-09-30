@@ -1,0 +1,57 @@
+table:
+  name: pokemon_v3_ability
+  schema: public
+object_relationships:
+  - name: pokemon_v3_generation
+    using:
+      foreign_key_constraint_on: generation_id
+array_relationships:
+  - name: pokemon_v3_abilitychanges
+    using:
+      foreign_key_constraint_on:
+        column: ability_id
+        table:
+          name: pokemon_v3_abilitychange
+          schema: public
+  - name: pokemon_v3_abilityeffecttexts
+    using:
+      foreign_key_constraint_on:
+        column: ability_id
+        table:
+          name: pokemon_v3_abilityeffecttext
+          schema: public
+  - name: pokemon_v3_abilityflavortexts
+    using:
+      foreign_key_constraint_on:
+        column: ability_id
+        table:
+          name: pokemon_v3_abilityflavortext
+          schema: public
+  - name: pokemon_v3_abilitynames
+    using:
+      foreign_key_constraint_on:
+        column: ability_id
+        table:
+          name: pokemon_v3_abilityname
+          schema: public
+  - name: pokemon_v3_pokemonabilities
+    using:
+      foreign_key_constraint_on:
+        column: ability_id
+        table:
+          name: pokemon_v3_pokemonability
+          schema: public
+  - name: pokemon_v3_pokemonabilitypasts
+    using:
+      foreign_key_constraint_on:
+        column: ability_id
+        table:
+          name: pokemon_v3_pokemonabilitypast
+          schema: public
+select_permissions:
+  - role: anon
+    permission:
+      columns: '*'
+      filter: {}
+      limit: 100000
+      allow_aggregations: true

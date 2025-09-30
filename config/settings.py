@@ -86,7 +86,7 @@ SECRET_KEY = os.environ.get(
     "SECRET_KEY", "ubx+22!jbo(^x2_scm-o$*py3e@-awu-n^hipkm%2l$sw$&2l#"
 )
 
-CUSTOM_APPS = ("pokemon_v2",)
+CUSTOM_APPS = ("pokemon_v3",)
 
 INSTALLED_APPS = (
     "django.contrib.auth",
@@ -151,7 +151,7 @@ We've covered everything from Pokémon to Berry Flavors.
 
 ## Where do I start?
 
-We have awesome [documentation](https://pokeapi.co/docs/v2) on how to use this API. It takes minutes to get started.
+We have awesome [documentation](https://pokeapi.co/docs/v3) on how to use this API. It takes minutes to get started.
 
 This API will always be publicly available and will never require any extensive setup process to consume.
 
@@ -159,8 +159,8 @@ Created by [**Paul Hallett**](https://github.com/phalt) and other [**PokéAPI co
     """,
     "SORT_OPERATIONS": False,
     "SERVERS": [{"url": "https://pokeapi.co"}],
-    "EXTERNAL_DOCS": {"url": "https://pokeapi.co/docs/v2"},
-    "VERSION": "2.7.0",
+    "EXTERNAL_DOCS": {"url": "https://pokeapi.co/docs/v3"},
+    "VERSION": "3.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
     "OAS_VERSION": "3.1.0",
     "COMPONENT_SPLIT_REQUEST": True,

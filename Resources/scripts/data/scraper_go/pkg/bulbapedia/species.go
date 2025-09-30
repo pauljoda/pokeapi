@@ -35,7 +35,6 @@ type Species struct {
 	IsLegendary          string `json:"is_legendary" default:"0"`
 	IsMythical           string `json:"is_mythical" default:"0"`
 	Order                string `json:"order"`
-	ConquestOrder        string `json:"conquest_order"`
 }
 
 type SpeciesScrapper map[int64]Species
@@ -84,7 +83,6 @@ func (s SpeciesScrapper) read(path string) error {
 			IsLegendary:          row[16],
 			IsMythical:           row[17],
 			Order:                row[18],
-			ConquestOrder:        row[19],
 		}
 		if row[0] == "" {
 			p.ID = ErrID
@@ -128,7 +126,7 @@ func (s SpeciesScrapper) write(path string) error {
 	defer file.Close()
 
 	w := bufio.NewWriter(file)
-	fmt.Fprintln(w, "id,identifier,generation_id,evolves_from_species_id,evolution_chain_id,color_id,shape_id,habitat_id,gender_rate,capture_rate,base_happiness,is_baby,hatch_counter,has_gender_differences,growth_rate_id,forms_switchable,is_legendary,is_mythical,order,conquest_order")
+	fmt.Fprintln(w, "id,identifier,generation_id,evolves_from_species_id,evolution_chain_id,color_id,shape_id,habitat_id,gender_rate,capture_rate,base_happiness,is_baby,hatch_counter,has_gender_differences,growth_rate_id,forms_switchable,is_legendary,is_mythical,order")
 
 	keys := make([]int, 0, len(s))
 	for k := range s {
@@ -138,7 +136,7 @@ func (s SpeciesScrapper) write(path string) error {
 
 	for _, k := range keys {
 		pokemon := s[int64(k)]
-		fmt.Fprintf(w, "%d,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n", pokemon.ID, pokemon.Identifier, pokemon.GenerationID, pokemon.EvolvesFromSpeciesID, pokemon.EvolutionChainID, pokemon.ColorID, pokemon.ShapeID, pokemon.HabitatID, pokemon.GenderRate, pokemon.CaptureRate, pokemon.BaseHappiness, pokemon.IsBaby, pokemon.HatchCounter, pokemon.HasGenderDifference, pokemon.GrowthRateID, pokemon.FormsSwitchable, pokemon.IsLegendary, pokemon.IsMythical, pokemon.Order, pokemon.ConquestOrder)
+		fmt.Fprintf(w, "%d,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n", pokemon.ID, pokemon.Identifier, pokemon.GenerationID, pokemon.EvolvesFromSpeciesID, pokemon.EvolutionChainID, pokemon.ColorID, pokemon.ShapeID, pokemon.HabitatID, pokemon.GenderRate, pokemon.CaptureRate, pokemon.BaseHappiness, pokemon.IsBaby, pokemon.HatchCounter, pokemon.HasGenderDifference, pokemon.GrowthRateID, pokemon.FormsSwitchable, pokemon.IsLegendary, pokemon.IsMythical, pokemon.Order)
 	}
 
 	return w.Flush()

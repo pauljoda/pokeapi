@@ -1,0 +1,40 @@
+table:
+  name: pokemon_v3_contesttype
+  schema: public
+object_relationships:
+  - name: pokemon_v3_berryflavor
+    using:
+      foreign_key_constraint_on:
+        column: contest_type_id
+        table:
+          name: pokemon_v3_berryflavor
+          schema: public
+array_relationships:
+  - name: pokemon_v3_berryflavors
+    using:
+      foreign_key_constraint_on:
+        column: contest_type_id
+        table:
+          name: pokemon_v3_berryflavor
+          schema: public
+  - name: pokemon_v3_contesttypenames
+    using:
+      foreign_key_constraint_on:
+        column: contest_type_id
+        table:
+          name: pokemon_v3_contesttypename
+          schema: public
+  - name: pokemon_v3_moves
+    using:
+      foreign_key_constraint_on:
+        column: contest_type_id
+        table:
+          name: pokemon_v3_move
+          schema: public
+select_permissions:
+  - role: anon
+    permission:
+      columns: '*'
+      filter: {}
+      limit: 100000
+      allow_aggregations: true

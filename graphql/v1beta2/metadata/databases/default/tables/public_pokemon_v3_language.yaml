@@ -1,0 +1,447 @@
+table:
+  name: pokemon_v3_language
+  schema: public
+configuration:
+  column_config: {}
+  custom_column_names: {}
+  custom_name: language
+  custom_root_fields: {}
+array_relationships:
+  - name: LanguagenamesByLocalLanguageId
+    using:
+      foreign_key_constraint_on:
+        column: local_language_id
+        table:
+          name: pokemon_v3_languagename
+          schema: public
+  - name: abilitychangeeffecttexts
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_abilitychangeeffecttext
+          schema: public
+  - name: abilityeffecttexts
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_abilityeffecttext
+          schema: public
+  - name: abilityflavortexts
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_abilityflavortext
+          schema: public
+  - name: abilitynames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_abilityname
+          schema: public
+  - name: berryfirmnessnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_berryfirmnessname
+          schema: public
+  - name: berryflavornames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_berryflavorname
+          schema: public
+  - name: characteristicdescriptions
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_characteristicdescription
+          schema: public
+  - name: contesteffecteffecttexts
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_contesteffecteffecttext
+          schema: public
+  - name: contesteffectflavortexts
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_contesteffectflavortext
+          schema: public
+  - name: contesttypenames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_contesttypename
+          schema: public
+  - name: egggroupnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_egggroupname
+          schema: public
+  - name: encounterconditionnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_encounterconditionname
+          schema: public
+  - name: encounterconditionvaluenames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_encounterconditionvaluename
+          schema: public
+  - name: encountermethodnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_encountermethodname
+          schema: public
+  - name: evolutiontriggernames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_evolutiontriggername
+          schema: public
+  - name: generationnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_generationname
+          schema: public
+  - name: growthratedescriptions
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_growthratedescription
+          schema: public
+  - name: itemattributedescriptions
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_itemattributedescription
+          schema: public
+  - name: itemattributenames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_itemattributename
+          schema: public
+  - name: itemcategorynames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_itemcategoryname
+          schema: public
+  - name: itemeffecttexts
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_itemeffecttext
+          schema: public
+  - name: itemflavortexts
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_itemflavortext
+          schema: public
+  - name: itemflingeffecteffecttexts
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_itemflingeffecteffecttext
+          schema: public
+  - name: itemnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_itemname
+          schema: public
+  - name: itempocketnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_itempocketname
+          schema: public
+  - name: languagenames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_languagename
+          schema: public
+  - name: locationareanames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_locationareaname
+          schema: public
+  - name: locationnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_locationname
+          schema: public
+  - name: moveattributedescriptions
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_moveattributedescription
+          schema: public
+  - name: moveattributenames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_moveattributename
+          schema: public
+  - name: movebattlestylenames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_movebattlestylename
+          schema: public
+  - name: movedamageclassdescriptions
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_movedamageclassdescription
+          schema: public
+  - name: movedamageclassnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_movedamageclassname
+          schema: public
+  - name: moveeffectchangeeffecttexts
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_moveeffectchangeeffecttext
+          schema: public
+  - name: moveeffecteffecttexts
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_moveeffecteffecttext
+          schema: public
+  - name: moveflavortexts
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_moveflavortext
+          schema: public
+  - name: movelearnmethoddescriptions
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_movelearnmethoddescription
+          schema: public
+  - name: movelearnmethodnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_movelearnmethodname
+          schema: public
+  - name: movemetaailmentnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_movemetaailmentname
+          schema: public
+  - name: movemetacategorydescriptions
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_movemetacategorydescription
+          schema: public
+  - name: movenames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_movename
+          schema: public
+  - name: movetargetdescriptions
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_movetargetdescription
+          schema: public
+  - name: movetargetnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_movetargetname
+          schema: public
+  - name: naturenames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_naturename
+          schema: public
+  - name: palparkareanames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_palparkareaname
+          schema: public
+  - name: pokeathlonstatnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_pokeathlonstatname
+          schema: public
+  - name: pokedexdescriptions
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_pokedexdescription
+          schema: public
+  - name: pokedexnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_pokedexname
+          schema: public
+  - name: pokemoncolornames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_pokemoncolorname
+          schema: public
+  - name: pokemonformnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_pokemonformname
+          schema: public
+  - name: pokemonhabitatnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_pokemonhabitatname
+          schema: public
+  - name: pokemonshapenames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_pokemonshapename
+          schema: public
+  - name: pokemonspeciesdescriptions
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_pokemonspeciesdescription
+          schema: public
+  - name: pokemonspeciesflavortexts
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_pokemonspeciesflavortext
+          schema: public
+  - name: pokemonspeciesnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_pokemonspeciesname
+          schema: public
+  - name: regionnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_regionname
+          schema: public
+  - name: statnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_statname
+          schema: public
+  - name: supercontesteffectflavortexts
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_supercontesteffectflavortext
+          schema: public
+  - name: typenames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_typename
+          schema: public
+  - name: versionnames
+    using:
+      foreign_key_constraint_on:
+        column: language_id
+        table:
+          name: pokemon_v3_versionname
+          schema: public
+select_permissions:
+  - role: anon
+    permission:
+      columns: '*'
+      filter: {}
+      limit: 100000
+      allow_aggregations: true
+      query_root_fields:
+        - select
+        - select_aggregate
+      subscription_root_fields: []

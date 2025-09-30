@@ -2,16 +2,16 @@
 # Should return Psyduck and Golduck
 
 query searchForPokemonInGerman {
-  pokemon_v2_pokemonspecies(
+  pokemon_v3_pokemonspecies(
     where: {
-      pokemon_v2_pokemonspeciesnames: {
-        pokemon_v2_language: { name: { _eq: "de" } }
+      pokemon_v3_pokemonspeciesnames: {
+        pokemon_v3_language: { name: { _eq: "de" } }
         name: { _regex: "Ento.*" }
       }
     }
   ) {
-    pokemon_v2_pokemonspeciesnames(
-      where: { pokemon_v2_language: { name: { _eq: "de" } } }
+    pokemon_v3_pokemonspeciesnames(
+      where: { pokemon_v3_language: { name: { _eq: "de" } } }
     ) {
       name
     }
